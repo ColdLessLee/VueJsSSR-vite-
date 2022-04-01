@@ -1,16 +1,16 @@
 const fs = require('fs')
 const path = require('path')
 
-const Absolutions = p => path.resolve(__dirname, p)
+const Absolutions = (p) => path.resolve(__dirname, p)
 
 const manifest = require('./dist/static/ssr-manifest.json')
 
 const template = fs.readFileSync(Absolutions('dist/static/index.html'), 'utf-8')
 const { ssrRenderFunction } = require('./dist/server/entry-server.js')
 
-const routesToPrerender = fs.readFileSync(Absolutions('src/pages')).map(file => {
+const routesToPrerender = fs.readdirSync(Absolutions('src/pages')).map(file => {
     const name = file.replace(/\.vue$/, '').toLowerCase()
-    return name === '/home' ? `/` : `/${name}`
+    return name === 'home' ? `/` : `/${name}`
 });
 
 (async () => { 

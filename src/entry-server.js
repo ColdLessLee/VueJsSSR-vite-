@@ -47,10 +47,10 @@ function renderPreloadLink(_file) {
         return `<link rel="stylesheet" href="${_file}">`
     }
     else if (_file.endsWith('.jpg')) {
-        return `<link rel="preload" href="${_file}" as="image/jpeg">`
+        return `<link rel="preload" href="${_file}" as="image" type="image/jpeg">`
     }
     else if (_file.endsWith('.png')) {
-        return `<link rel="preload" href="${_file}" as="image/png">`
+        return `<link rel="preload" href="${_file}"  as="image" type="image/png">`
     } else { 
         return ''
     }

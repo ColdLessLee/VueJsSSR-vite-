@@ -11,7 +11,7 @@ async function openServer (root = process.cwd(),
 
     const resolves = t => path.resolve(__dirname, t)
 
-    const indexProd = isProd ? fs.readFileSync(resolves('dist/client/index.html'), 'utf-8') : ''
+    const indexProd = isProd ? fs.readFileSync(resolves('./dist/client/index.html'), 'utf-8') : ''
 
     const manifest = isProd ? require('./dist/client/ssr-manifest.json') : {}
 

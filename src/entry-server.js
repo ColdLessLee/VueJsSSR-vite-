@@ -9,9 +9,9 @@ export async function ssrRenderFunction (url, manifest) {
     await router.isReady()
 
     const context = {}
-    const html = await renderToString(app, ctx)
+    const html = await renderToString(app, context)
 
-    const preloadLinks = renderPreloadLinks(app, context)
+    const preloadLinks = renderPreloadLinks(context.modules, manifest)
     
     return[html,preloadLinks]
 }
